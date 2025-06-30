@@ -1,0 +1,3361 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZiyadeNet | YKS 2026 Hazırlık Platformu</title>
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.2/css/all.css">
+    <style>
+        :root {
+            --primary-color: #6c5ce7;
+            --secondary-color: #ff7675;
+            --accent-color: #5ca4e7;
+            --dark-color: #2d3436;
+            --light-color: #f5f6fa;
+            --success-color: #00b894;
+            --warning-color: #fdcb6e;
+            --danger-color: #d63031;
+            --border-radius: 12px;
+            --box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #a29bfe;
+            --secondary-color: #ff7675;
+            --accent-color: #5ca4e7;
+            --dark-color: #dfe6e9;
+            --light-color: #1e272e;
+            --success-color: #eb5d5bz;
+            --warning-color: #ffeaa7;
+            --danger-color: #ff7675;
+            --box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+            transition: var(--transition);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background-color: var(--light-color);
+            box-shadow: var(--box-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+            background-color: rgba(108, 92, 231, 0.1);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: var(--dark-color);
+            transition: var(--transition);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-toggle:hover {
+            background-color: rgba(108, 92, 231, 0.1);
+            color: var(--primary-color);
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 60px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(108, 92, 231, 0.08), rgba(253, 121, 168, 0.08));
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 25px;
+            color: var(--dark-color);
+        }
+
+        .countdown-container {
+            margin: 40px auto;
+            max-width: 600px;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .countdown-item {
+            background-color: var(--light-color);
+            padding: 20px 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            min-width: 110px;
+            border: 1px solid rgba(108, 92, 231, 0.1);
+        }
+
+        .countdown-number {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            color: var(--dark-color);
+            text-transform: uppercase;
+        }
+		.teachers-section {
+            background: linear-gradient(135deg, rgba(108, 92, 231, 0.05), rgba(253, 121, 168, 0.05));
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin: 40px auto;
+            max-width: 900px;
+            border: 1px solid rgba(108, 92, 231, 0.1);
+        }
+
+        .teachers-title {
+            text-align: center;
+            margin-bottom: 25px;
+            color: var(--dark-color);
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .teachers-slider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            position: relative;
+        }
+
+        .teachers-container {
+            display: flex;
+            gap: 25px;
+            padding: 15px;
+            scroll-behavior: smooth;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            flex: 1;
+        }
+
+        .teachers-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .teacher-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    height: 180px; /* Sabit kart yüksekliği */
+}
+
+
+        .teacher-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .teacher-image-container {
+            position: relative;
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 12px;
+        }
+
+       .teacher-subject {
+    order: 1;
+    font-size: 0.8rem;
+    color: white;
+    background-color: var(--primary-color);
+    padding: 6px 12px; /* Dikey padding'i artırdık */
+    border-radius: 20px;
+    margin-bottom: 10px;
+    width: auto; /* Sabit genişlik kaldırıldı */
+    max-width: 90%; /* Kart genişliğine göre ayar */
+    white-space: nowrap;
+    overflow: visible; /* Taşmayı engelleme */
+    text-overflow: clip; /* Kesme işaretini kaldırdık */
+    position: relative;
+    z-index: 2;
+    line-height: 1.2; /* Satır yüksekliği eklendi */
+}
+
+/* Fotoğraf - ORTADA */
+.teacher-image-container {
+    order: 2; /* İkinci sıra */
+    width: 90px;
+    height: 90px;
+    margin: 5px 0;
+}
+  <!-- .teacher-subject {
+            font-size: 0.8rem;
+            color: var(--primary-color);
+            background-color: rgba(108, 92, 231, 0.1);
+            padding: 4px 10px;
+            border-radius: 20px;
+            display: inline-block;
+        }-->
+		
+.teacher-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-color);
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+}
+
+/* Öğretmen adı - ALTA */
+.teacher-name {
+    order: 3; /* Üçüncü sıra */
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--dark-color);
+    margin-top: 8px;
+    padding: 0 5px;
+    white-space: normal;
+    word-wrap: break-word;
+    min-height: 40px; /* İki satırlık alan */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+     
+
+
+        .slider-arrow {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 2;
+            transition: var(--transition);
+            flex-shrink: 0;
+        }
+
+        .slider-arrow:hover {
+            background-color: var(--accent-color);
+            transform: scale(1.1);
+        }
+
+        .slider-arrow i {
+            font-size: 1.2rem;
+        }
+
+        /* Main Content */
+        .main-content {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        @media (max-width: 992px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Pomodoro Timer */
+        .pomodoro-card {
+            background-color: var(--light-color);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 25px;
+            border: 1px solid rgba(108, 92, 231, 0.1);
+            position: relative;
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+            z-index: 10;
+        }
+
+        .pomodoro-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(108, 92, 231, 0.1);
+        }
+
+        .pomodoro-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pomodoro-timer {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        #shortBreak {
+            margin-top: 22px;
+        }
+
+        .timer-display {
+            font-size: 4rem;
+            font-weight: bold;
+            margin: 20px 0;
+            color: var(--primary-color);
+        }
+
+        .timer-mode {
+            font-size: 1rem;
+            color: var(--dark-color);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .timer-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .pomodoro-inputs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .pomodoro-input {
+            display: flex;
+            flex-direction: column;
+            width: 150px;
+        }
+
+        .pomodoro-input label {
+            font-weight: 500;
+            margin-bottom: 5px;
+            text-align: center;
+            color: var(--dark-color);
+        }
+
+        .pomodoro-input input {
+            padding: 8px 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .btn {
+            padding: 10px 18px;
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #5a4bd4;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #fc6b8b;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(108, 92, 231, 0.1);
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .timer-settings-btn {
+            background: none;
+            border: none;
+            color: var(--dark-color);
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin: 0 auto;
+            padding: 8px 12px;
+            border-radius: var(--border-radius);
+        }
+
+        .timer-settings-btn:hover {
+            background-color: rgba(108, 92, 231, 0.1);
+            color: var(--primary-color);
+        }
+
+        .timer-settings {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(108, 92, 231, 0.1);
+            display: none;
+        }
+
+        .timer-settings.show {
+            display: block;
+        }
+
+        .settings-title {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .settings-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid rgba(108, 92, 231, 0.2);
+            border-radius: var(--border-radius);
+            font-size: 0.95rem;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.2);
+        }
+
+        /* Task Manager */
+        .task-manager {
+            position: relative;
+        }
+
+        .task-card {
+            background-color: var(--light-color);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 30px;
+            border: 1px solid rgba(108, 92, 231, 0.1);
+        }
+
+        .task-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .task-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .add-task-btn {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            padding: 12px 18px;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .add-task-btn:hover {
+            background-color: #00b5ad;
+            transform: translateY(-2px);
+        }
+
+        .task-tabs {
+            display: flex;
+            border-bottom: 1px solid rgba(108, 92, 231, 0.1);
+            margin-bottom: 25px;
+        }
+
+        .task-tab {
+            padding: 12px 20px;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--dark-color);
+            border-bottom: 3px solid transparent;
+            opacity: 0.7;
+        }
+
+        .task-tab.active {
+            opacity: 1;
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+        }
+
+        .task-tab:hover {
+            opacity: 1;
+            color: var(--primary-color);
+        }
+
+        .task-view-options {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .view-option-btn {
+            background: none;
+            border: none;
+            color: var(--dark-color);
+            cursor: pointer;
+            font-size: 1rem;
+            opacity: 0.6;
+            padding: 8px 12px;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .view-option-btn.active {
+            opacity: 1;
+            color: var(--primary-color);
+            background-color: rgba(108, 92, 231, 0.1);
+        }
+
+        .view-option-btn:hover {
+            opacity: 1;
+            color: var(--primary-color);
+        }
+
+        /* Calendar View */
+        .calendar-view {
+            display: none;
+        }
+
+        .calendar-view.active {
+            display: block;
+        }
+
+        .calendar-header {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            text-align: center;
+            font-weight: 500;
+            margin-bottom: 15px;
+            background-color: var(--light-color);
+            padding: 12px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            border: 1px solid rgba(108, 92, 231, 0.1);
+        }
+
+        .calendar-week {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .calendar-day {
+            background-color: var(--light-color);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 15px;
+            min-height: 140px;
+            position: relative;
+            border: 1px solid rgba(108, 92, 231, 0.1);
+            cursor: pointer;
+        }
+
+        .calendar-day-number {
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--dark-color);
+        }
+
+        .calendar-day.today .calendar-day-number {
+            color: var(--primary-color);
+        }
+
+        .calendar-day.other-month {
+            opacity: 0.4;
+        }
+
+        .calendar-day-tasks {
+            margin-top: 10px;
+            font-size: 0.8rem;
+        }
+
+        .calendar-task {
+            background-color: rgba(108, 92, 231, 0.1);
+            border-radius: 6px;
+            padding: 6px 8px;
+            margin-bottom: 6px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            cursor: pointer;
+            font-size: 0.75rem;
+        }
+
+        .calendar-task:hover {
+            background-color: rgba(108, 92, 231, 0.2);
+        }
+
+        .calendar-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .calendar-month {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .calendar-nav-btn {
+            background: none;
+            border: none;
+            font-size: 1.3rem;
+            cursor: pointer;
+            color: var(--dark-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .calendar-nav-btn:hover {
+            background-color: rgba(108, 92, 231, 0.1);
+            color: var(--primary-color);
+        }
+
+        /* Week View */
+        .week-view {
+            display: none;
+        }
+
+        .week-view.active {
+            display: block;
+        }
+
+        .week-header {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            text-align: center;
+            font-weight: 500;
+            margin-bottom: 15px;
+            background-color: var(--light-color);
+            padding: 12px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            border: 1px solid rgba(108, 92, 231, 0.1);
+        }
+
+        .week-days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 12px;
+        }
+
+        .week-day {
+            background-color: var(--light-color);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 15px;
+            min-height: 200px;
+            border: 1px solid rgba(108, 92, 231, 0.1);
+        }
+
+        .week-day-header {
+            font-weight: 600;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(108, 92, 231, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .week-day-number {
+            color: var(--dark-color);
+        }
+
+        .week-day.today .week-day-number {
+            color: var(--primary-color);
+        }
+
+        .week-day-tasks {
+            margin-top: 10px;
+            font-size: 0.8rem;
+        }
+
+        /* List View */
+        .list-view {
+            display: none;
+        }
+
+        .list-view.active {
+            display: block;
+        }
+
+        .task-list {
+            max-height: 600px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        .task-card-item {
+            background-color: var(--light-color);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 18px 20px;
+            margin-bottom: 15px;
+            position: relative;
+            border-left: 4px solid var(--primary-color);
+            border: 1px solid rgba(108, 92, 231, 0.1);
+        }
+
+        .task-card-item.completed {
+            opacity: 0.7;
+            border-left-color: var(--success-color);
+        }
+
+        .task-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .task-item-title {
+            font-weight: 500;
+            flex-grow: 1;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .task-item-title.completed {
+            text-decoration: line-through;
+            opacity: 0.7;
+        }
+
+        .task-priority {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        .task-priority.high {
+            background-color: var(--danger-color);
+        }
+
+        .task-priority.medium {
+            background-color: var(--warning-color);
+        }
+
+        .task-priority.low {
+            background-color: var(--success-color);
+        }
+
+        .task-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .task-action-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--dark-color);
+            font-size: 16px;
+            opacity: 0.7;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .task-action-btn:hover {
+            opacity: 1;
+            color: var(--primary-color);
+            background-color: rgba(108, 92, 231, 0.1);
+        }
+
+        .task-action-btn.delete:hover {
+            color: var(--danger-color);
+        }
+
+        .task-due-date {
+            font-size: 0.85rem;
+            color: var(--dark-color);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .task-due-date.overdue {
+            color: var(--danger-color);
+        }
+
+        .task-description {
+            font-size: 0.95rem;
+            color: var(--dark-color);
+            margin-bottom: 12px;
+        }
+
+        .task-category {
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            background-color: rgba(108, 92, 231, 0.1);
+            color: var(--primary-color);
+        }
+
+        .task-checkbox {
+            position: absolute;
+            left: -28px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 22px;
+            height: 22px;
+            cursor: pointer;
+            accent-color: var(--primary-color);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background-color: var(--light-color);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            width: 100%;
+            max-width: 500px;
+            padding: 30px;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+/* ChatGPT Button Styles */
+#chatgpt-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 26px;
+  border-radius: 50%;
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+  z-index: 10000; /* Header'dan daha yüksek */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  border: none;
+}
+
+#chatgpt-button:hover {
+  transform: scale(1.1);
+  background-color: var(--accent-color);
+}
+
+#chatgpt-label {
+  position: fixed;
+  bottom: 90px;
+  right: 25px;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 8px 12px;
+  border-radius: var(--border-radius);
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: var(--box-shadow);
+  display: none;
+  z-index: 10000;
+}
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--dark-color);
+            opacity: 0.7;
+        }
+
+        .close-btn:hover {
+            opacity: 1;
+            color: var(--danger-color);
+        }
+
+        .modal-body {
+            margin-bottom: 20px;
+        }
+
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+        }
+
+        /* Day View Modal */
+        .day-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .day-modal.show {
+            display: flex;
+        }
+
+        .day-modal-content {
+            background-color: var(--light-color);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            width: 100%;
+            max-width: 600px;
+            padding: 30px;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .day-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .day-modal-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .day-modal-body {
+            margin-bottom: 20px;
+        }
+
+        .day-task-list {
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            padding: 15px 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 1100;
+            transform: translateX(150%);
+            transition: transform 0.3s ease;
+            border-left: 4px solid var(--success-color);
+        }
+
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        .toast.success {
+            border-left-color: var(--success-color);
+        }
+
+        .toast-icon {
+            font-size: 1.2rem;
+        }
+
+        .toast.success .toast-icon {
+            color: var(--success-color);
+        }
+
+        .toast-close {
+            background: none;
+            border: none;
+            color: var(--dark-color);
+            cursor: pointer;
+            margin-left: 15px;
+        }
+
+        /* Progress */
+        .progress-container {
+            margin-top: 30px;
+            background-color: var(--light-color);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 25px;
+            border: 1px solid rgba(108, 92, 231, 0.1);
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .progress-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .progress-bar {
+            height: 12px;
+            background-color: rgba(108, 92, 231, 0.1);
+            border-radius: 6px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 6px;
+            transition: width 0.5s ease;
+        }
+
+        .progress-stats {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: var(--dark-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--light-color);
+            padding: 30px 0;
+            text-align: center;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.05);
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .footer-links a {
+            color: var(--dark-color);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(108, 92, 231, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            color: var(--dark-color);
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .social-link:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+            color: var(--dark-color);
+            opacity: 0.7;
+        }
+
+        /* More Tasks Button */
+        .more-tasks-btn {
+            background-color: rgba(108, 92, 231, 0.2) !important;
+            cursor: pointer;
+            text-align: center;
+            font-weight: 500;
+            font-size: 0.7rem;
+            padding: 4px;
+        }
+
+        .more-tasks-btn:hover {
+            background-color: rgba(108, 92, 231, 0.3) !important;
+        }
+
+        /* Custom Checkbox Styles */
+        .task-checkbox-container {
+            display: inline-flex;
+            align-items: center;
+            position: relative;
+            padding-left: 35px;
+            margin-right: 12px;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .task-checkbox-container input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 20px;
+            width: 20px;
+            background-color: var(--light-color);
+            border: 2px solid var(--primary-color);
+            border-radius: 4px;
+        }
+
+        .task-checkbox-container:hover input ~ .checkmark {
+            background-color: rgba(108, 92, 231, 0.1);
+        }
+
+        .task-checkbox-container input:checked ~ .checkmark {
+            background-color: var(--primary-color);
+        }
+
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        .task-checkbox-container input:checked ~ .checkmark:after {
+            display: block;
+        }
+
+        .task-checkbox-container .checkmark:after {
+            left: 6px;
+            top: 2px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+
+        .task-complete-text {
+            margin-left: 5px;
+            font-size: 0.85rem;
+            color: var(--primary-color);
+        }
+
+        /* Day View Styles */
+        .day-view {
+            display: none;
+        }
+
+        .day-view.active {
+            display: block;
+        }
+
+        .day-view-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .day-view-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .day-view-nav {
+            display: flex;
+            gap: 10px;
+        }
+
+        .day-view-nav-btn {
+            background: none;
+            border: none;
+            font-size: 1.3rem;
+            cursor: pointer;
+            color: var(--dark-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .day-view-nav-btn:hover {
+            background-color: rgba(108, 92, 231, 0.1);
+            color: var(--primary-color);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .countdown-item {
+                min-width: 90px;
+                padding: 15px 20px;
+            }
+
+            .countdown-number {
+                font-size: 1.8rem;
+            }
+
+            .settings-form {
+                grid-template-columns: 1fr;
+            }
+
+            .progress-container {
+                top: 70px;
+                padding: 10px;
+            }
+            
+            .task-checkbox-container {
+                padding-left: 30px;
+            }
+            
+            .checkmark {
+                height: 18px;
+                width: 18px;
+            }
+            
+            .task-complete-text {
+                display: none;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .timer-controls {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+                padding: 12px 0;
+            }
+
+            .countdown {
+                gap: 10px;
+            }
+
+            .countdown-item {
+                min-width: 80px;
+                padding: 12px 15px;
+            }
+            
+            .calendar-day, .week-day {
+                min-height: 100px;
+                padding: 10px;
+            }
+
+            .modal-content, .day-modal-content {
+                padding: 20px;
+            }
+
+            .progress-container {
+                top: 60px;
+            }
+            
+            .task-card-item {
+                padding: 15px;
+            }
+            
+            .task-actions {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-content">
+            <a href="#" class="logo">
+                <div class="logo-text">Ziyade<span>Net</span></div>
+            </a>
+            <nav class="nav-links">
+                <a href="#pomodoro"><i class="fas fa-clock"></i> Pomodoro</a>
+                <a href="#tasks"><i class="fas fa-tasks"></i> Görevler</a>
+                <a href="#tasks"><i class="fas fa-book"></i> Hocalar</a>
+                <a href="#stats"><i class="fas fa-chart-line"></i> İstatistikler</a>
+            </nav>
+            <div class="header-actions">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="user-avatar">Z</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>YKS 2026 Hazırlık Platformu</h1>
+            <p>ZiyadeNet ile sınav hazırlığınızı en verimli şekilde yönetin. Pomodoro tekniği, görev takibi ve kişisel planlamayla hedefinize odaklanın.</p>
+            
+            <div class="countdown-container">
+                <h3>YKS 2026'ya Kalan Süre:</h3>
+                <div class="countdown" id="countdown">
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="days">00</div>
+                        <div class="countdown-label">Gün</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="hours">00</div>
+                        <div class="countdown-label">Saat</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="minutes">00</div>
+                        <div class="countdown-label">Dakika</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="seconds">00</div>
+                        <div class="countdown-label">Saniye</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+	
+	 <div class="teachers-section">
+        <h3 class="teachers-title"><i class="fas fa-chalkboard-teacher"></i> YKS'de En Çok Tavsiye Edilen Hocalar</h3>
+        <div class="teachers-slider">
+            <button class="slider-arrow prev-arrow"><i class="fas fa-chevron-left"></i></button>
+            <div class="teachers-container" id="teachersContainer">
+                <!-- Teachers will be added here dynamically -->
+            </div>
+            <button class="slider-arrow next-arrow"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+
+    <!-- Main Content -->
+    <div class="container main-content">
+        <!-- Left Column - Pomodoro -->
+        <div class="left-column">
+            <div class="pomodoro-card" id="pomodoro">
+                <div class="pomodoro-header">
+                    <h2 class="pomodoro-title"><i class="fas fa-clock"></i> Pomodoro</h2>
+                </div>
+                <div class="pomodoro-timer">
+                    <div class="timer-mode" id="timerMode">Çalışma Seansı</div>
+                    <div class="timer-display" id="timer">135:00</div>
+                    <div class="timer-controls">
+                        <button class="btn btn-primary" id="startBtn">
+                            <i class="fas fa-play"></i> Başlat
+                        </button>
+                        <button class="btn btn-outline hidden" id="pauseBtn">
+                            <i class="fas fa-pause"></i> Duraklat
+                        </button>
+                        <button class="btn btn-secondary hidden" id="resetBtn">
+                            <i class="fas fa-redo"></i> Sıfırla
+                        </button>
+                    </div>
+                    <button class="timer-settings-btn" id="showSettingsBtn">
+                        <i class="fas fa-cog"></i> Ayarları Düzenle
+                    </button>
+                    <div class="timer-settings" id="timerSettings">
+                        <h3 class="settings-title"><i class="fas fa-sliders-h"></i> Zamanlayıcı Ayarları</h3>
+                        <form class="settings-form" id="timerSettingsForm">
+                            <div class="form-group">
+                                <label for="studyTime">Çalışma Süresi (dk)</label>
+                                <input type="number" id="studyTime" class="form-control" value="135" min="1" max="180">
+                            </div>
+                            <div class="form-group">
+                                <label for="shortBreak">Kısa Mola (dk)</label>
+                                <input type="number" id="shortBreak" class="form-control" value="5" min="1" max="30">
+                            </div>
+                            <div class="form-group">
+                                <label for="longBreak">Uzun Mola (dk)</label>
+                                <input type="number" id="longBreak" class="form-control" value="15" min="10" max="60">
+                            </div>
+                            <div class="form-group">
+                                <label for="sessionsBeforeLongBreak">Seans Sayısı</label>
+                                <input type="number" id="sessionsBeforeLongBreak" class="form-control" value="4" min="1" max="10">
+                            </div>
+                            <div class="form-group">
+                                <button type="button" class="btn btn-primary" id="saveSettings">
+                                    <i class="fas fa-save"></i> Ayarları Kaydet
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-header">
+                    <h3 class="progress-title"><i class="fas fa-chart-line"></i> Haftalık İlerleme</h3>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill" style="width: 65%"></div>
+                </div>
+                <div class="progress-stats">
+                    <span>Tamamlanan: <strong>13</strong> görev</span>
+                    <span>Hedef: <strong>20</strong> görev</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column - Task Manager -->
+        <div class="task-manager" id="tasks">
+            <div class="task-card">
+                <div class="task-header">
+                    <h2 class="task-title"><i class="fas fa-calendar-alt"></i> Planlama Takvimi</h2>
+                    <button class="add-task-btn" id="addTaskBtn">
+                        <i class="fas fa-plus"></i> Görev Ekle
+                    </button>
+                </div>
+                <div class="task-tabs">
+                    <div class="task-tab active" data-tab="today">Bugün</div>
+                    <div class="task-tab" data-tab="week">Bu Hafta</div>
+                    <div class="task-tab" data-tab="month">Bu Ay</div>
+                    <div class="task-tab" data-tab="all">Tüm Görevler</div>
+                </div>
+                <div class="task-view-options">
+                    <button class="view-option-btn active" data-view="list"><i class="fas fa-list"></i> Liste</button>
+                    <button class="view-option-btn" data-view="calendar">
+                        <i class="fas fa-calendar-alt"></i> Takvim
+                    </button>
+                </div>
+                
+                <!-- Month View -->
+                <div class="calendar-view" id="monthView">
+                    <div class="calendar-nav">
+                        <button class="calendar-nav-btn" id="prevMonth"><i class="fas fa-chevron-left"></i></button>
+                        <div class="calendar-month" id="calendarMonth">Temmuz 2025</div>
+                        <button class="calendar-nav-btn" id="nextMonth"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="calendar-header">
+                        <div>Pzt</div>
+                        <div>Sal</div>
+                        <div>Çar</div>
+                        <div>Per</div>
+                        <div>Cum</div>
+                        <div>Cmt</div>
+                        <div>Paz</div>
+                    </div>
+                    <div class="calendar-weeks" id="calendarWeeks">
+                        <!-- Calendar weeks will be added here dynamically -->
+                    </div>
+                </div>
+                
+                <!-- Week View -->
+                <div class="week-view" id="weekView">
+                    <div class="calendar-nav">
+                        <button class="calendar-nav-btn" id="prevWeek"><i class="fas fa-chevron-left"></i></button>
+                        <div class="calendar-month" id="weekRange">25 Haziran - 1 Temmuz 2025</div>
+                        <button class="calendar-nav-btn" id="nextWeek"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="week-header">
+                        <div>Pazartesi</div>
+                        <div>Salı</div>
+                        <div>Çarşamba</div>
+                        <div>Perşembe</div>
+                        <div>Cuma</div>
+                        <div>Cumartesi</div>
+                        <div>Pazar</div>
+                    </div>
+                    <div class="week-days" id="weekDays">
+                        <!-- Week days will be added here dynamically -->
+                    </div>
+                </div>
+                
+                <!-- Day View -->
+                <div class="day-view" id="dayView">
+                    <div class="day-view-header">
+                        <button class="day-view-nav-btn" id="prevDay"><i class="fas fa-chevron-left"></i></button>
+                        <div class="day-view-title" id="dayViewTitle">27 Haziran 2025</div>
+                        <button class="day-view-nav-btn" id="nextDay"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="day-task-list" id="dayViewTaskList"></div>
+                </div>
+                
+                <!-- List View -->
+                <div class="list-view active" id="listView">
+                    <div class="task-list" id="taskList">
+                        <!-- Tasks will be added here dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Task Modal -->
+    <div class="modal" id="taskModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Yeni Görev Ekle</h3>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="taskForm">
+                    <div class="form-group">
+                        <label for="taskTitle">Görev Başlığı*</label>
+                        <input type="text" id="taskTitle" class="form-control" required placeholder="Görev adını girin">
+                    </div>
+                    <button type="button" class="btn btn-outline" id="extraSettingsBtn" style="margin-bottom: 15px;">
+                        <i class="fas fa-cog"></i> Ek Ayarlar
+                    </button>
+                    <div id="extraSettings" style="display: none;">
+                        <div class="form-group">
+                            <label for="taskDueDate">Son Tarih</label>
+                            <input type="datetime-local" id="taskDueDate" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="taskDescription">Açıklama</label>
+                            <textarea id="taskDescription" class="form-control" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="taskPriority">Öncelik</label>
+                            <select id="taskPriority" class="form-control">
+                                <option value="low">Düşük</option>
+                                <option value="medium" selected>Orta</option>
+                                <option value="high">Yüksek</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="taskDuration">Tahmini Süre (dk)</label>
+                            <input type="number" id="taskDuration" class="form-control" min="5" value="60">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" id="cancelTask">İptal</button>
+                <button type="button" class="btn btn-primary" id="saveTask">Kaydet</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Day View Modal -->
+    <div class="day-modal" id="dayModal">
+        <div class="day-modal-content">
+            <div class="day-modal-header">
+                <h3 class="day-modal-title" id="dayModalTitle">27 Haziran 2025 Görevleri</h3>
+                <button class="close-btn" id="closeDayModal">&times;</button>
+            </div>
+            <div class="day-modal-body">
+                <div class="day-task-list" id="dayTaskList"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast hidden" id="toast">
+        <div class="toast-icon"><i class="fas fa-check-circle"></i></div>
+        <div class="toast-message" id="toastMessage">Görev başarıyla eklendi!</div>
+        <button class="toast-close">&times;</button>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">ZiyadeNet</div>
+            <div class="footer-links">
+                <a href="#">Hakkında</a>
+                <a href="#">Gizlilik Politikası</a>
+                <a href="#">İletişim</a>
+                <a href="#">Yardım</a>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2025 ZiyadeNet. Tüm hakları saklıdır.
+            </div>
+        </div>
+    </footer>
+	<!-- ChatGPT Butonu -->
+<div id="chatgpt-button" title="ChatGPT'yi Aç">
+  <i class="fa-classic fa-solid fa-message-bot fa-fw"></i>
+</div>
+<div id="chatgpt-label">ChatGPT ile Sohbet Et</div>
+
+    <script>
+        // DOM Elements
+const themeToggle = document.getElementById('themeToggle');
+const body = document.body;
+        
+// Timer Elements
+const timerDisplay = document.getElementById('timer');
+const timerMode = document.getElementById('timerMode');
+const startBtn = document.getElementById('startBtn');
+const pauseBtn = document.getElementById('pauseBtn');
+const resetBtn = document.getElementById('resetBtn');
+const showSettingsBtn = document.getElementById('showSettingsBtn');
+const timerSettings = document.getElementById('timerSettings');
+const saveSettingsBtn = document.getElementById('saveSettings');
+const studyTimeInput = document.getElementById('studyTime');
+const shortBreakInput = document.getElementById('shortBreak');
+const longBreakInput = document.getElementById('longBreak');
+const sessionsInput = document.getElementById('sessionsBeforeLongBreak');
+        
+// Countdown Elements
+const countdownDays = document.getElementById('days');
+const countdownHours = document.getElementById('hours');
+const countdownMinutes = document.getElementById('minutes');
+const countdownSeconds = document.getElementById('seconds');
+        
+// Task Manager Elements
+const addTaskBtn = document.getElementById('addTaskBtn');
+const taskModal = document.getElementById('taskModal');
+const closeModal = document.getElementById('closeModal');
+const cancelTask = document.getElementById('cancelTask');
+const saveTask = document.getElementById('saveTask');
+const taskForm = document.getElementById('taskForm');
+const taskList = document.getElementById('taskList');
+const taskTabs = document.querySelectorAll('.task-tab');
+const viewOptionBtns = document.querySelectorAll('.view-option-btn');
+const extraSettingsBtn = document.getElementById('extraSettingsBtn');
+const extraSettings = document.getElementById('extraSettings');
+        
+// View Elements
+const monthView = document.getElementById('monthView');
+const weekView = document.getElementById('weekView');
+const dayView = document.getElementById('dayView');
+const listView = document.getElementById('listView');
+        
+// Calendar Elements
+const calendarMonth = document.getElementById('calendarMonth');
+const calendarWeeks = document.getElementById('calendarWeeks');
+const prevMonthBtn = document.getElementById('prevMonth');
+const nextMonthBtn = document.getElementById('nextMonth');
+        
+// Week View Elements
+const weekRange = document.getElementById('weekRange');
+const weekDays = document.getElementById('weekDays');
+const prevWeekBtn = document.getElementById('prevWeek');
+const nextWeekBtn = document.getElementById('nextWeek');
+        
+// Day View Elements
+
+
+const dayViewTitle = document.getElementById('dayViewTitle');
+const dayViewTaskList = document.getElementById('dayViewTaskList');
+const prevDayBtn = document.getElementById('prevDay');
+const nextDayBtn = document.getElementById('nextDay');
+        
+// Day Modal Elements
+const dayModal = document.getElementById('dayModal');
+const dayModalTitle = document.getElementById('dayModalTitle');
+const dayTaskList = document.getElementById('dayTaskList');
+const closeDayModal = document.getElementById('closeDayModal');
+        
+// Toast Elements
+const toast = document.getElementById('toast');
+const toastMessage = document.getElementById('toastMessage');
+const toastClose = document.querySelector('.toast-close');
+        
+// Progress Elements
+const progressContainer = document.querySelector('.progress-container');
+const progressFill = document.getElementById('progressFill');
+
+
+
+// Teachers Elements
+        const teachersContainer = document.getElementById('teachersContainer');
+        const prevArrow = document.querySelector('.prev-arrow');
+        const nextArrow = document.querySelector('.next-arrow');
+
+        // Teachers Data
+        const teachers = [
+            {
+                name: "Rehber Matematik",
+                subject: "mat",
+                youtube: "https://www.youtube.com/c/RehberMatematik",
+                image: "mat.png"
+				
+            },
+            {
+                name: "Rüştü Hoca",
+                subject: "ede",
+                youtube: "https://www.youtube.com/@R%C3%BC%C5%9Ft%C3%BCHocaileT%C3%BCrk%C3%A7e/videos",
+                image: "ede.png"
+            },
+            {
+                name: "Felsefe Atölyesi",
+                subject: "fel",
+                youtube: "https://www.youtube.com/c/FelsefeAt%C3%B6lyesi",
+                image: "fel.png"
+            },
+            {
+                name: "Ardıç Tarih",
+                subject: "tar",
+                youtube: "https://www.youtube.com/@sonerardictarih",
+                image: "tar.png"
+            },
+			
+			{
+                name: "Coğrafyanın Kodları",
+                subject: "cog",
+                youtube: "https://www.youtube.com/@cografyaninkodlari",
+                image: "cog.png"
+            },
+			
+            {
+                name: "VIP Fizik",
+                subject: "fiz",
+                youtube: "https://www.youtube.com/c/VIPF%C4%B0Z%C4%B0K",
+                image: "fiz.png"
+            },
+            {
+                name: "Celal Hoca ile Kimya",
+                subject: "kim",
+                youtube: "https://www.youtube.com/@CelalHocaileKimya",
+                image: "kim.png"
+            },
+            {
+                name: "Biosem",
+                subject: "biy",
+                youtube: "https://www.youtube.com/@Biosem",
+                image: "biy.png"
+            },
+
+        ];
+		
+// Timer Variables
+let timer;
+let isRunning = false;
+let isPaused = false;
+let timeLeft = 135 * 60; // 25 minutes in seconds
+let currentMode = 'study'; // study, shortBreak, longBreak
+let sessionsCompleted = 0;
+
+// Task Variables
+let editMode = false;
+let editingTaskId = null;
+
+let tasks = JSON.parse(localStorage.getItem('tasks')) || [
+
+
+    {
+        id: 1,
+        title: "Matematik Denemesi Çöz",
+        description: "TYT Matematik denemesi çöz ve yanlışları analiz et.",
+        dueDate: new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate() + 1, 14, 0).getTime(),
+        priority: "high",
+        category: "exercise",
+        duration: 90,
+        completed: false
+    },
+    {
+        id: 2,
+        title: "Kimya Konu Tekrarı",
+        description: "Organik kimya konularını tekrar et ve soru çöz.",
+        dueDate: new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate() + 2, 10, 0).getTime(),
+        priority: "medium",
+        category: "review",
+        duration: 60,
+        completed: true
+    }
+];
+
+// Calendar Variables
+let currentMonth = new Date().getMonth();
+let currentYear = new Date().getFullYear();
+let currentWeekStart = getStartOfWeek(new Date());
+let currentDay = new Date();
+currentDay.setHours(0, 0, 0, 0);
+let currentView = 'list'; // month, week, day, list
+let currentTab = 'today'; // today, week, month, all
+
+// Initialize the app
+        function renderTeachers() {
+            teachersContainer.innerHTML = '';
+            
+            teachers.forEach(teacher => {
+                const card = document.createElement('div');
+                card.className = 'teacher-card';
+                card.innerHTML = `
+                    <div class="teacher-image-container">
+                        <img src="${teacher.image}" alt="${teacher.name}" class="teacher-image" 
+                            onerror="this.onerror=null;this.src='https://via.placeholder.com/150/6c5ce7/ffffff?text=${teacher.name.substring(0,1)}'">
+                    </div>
+                    <div class="teacher-name">${teacher.name}</div>
+                    <div class="teacher-subject">${getSubjectName(teacher.subject)}</div>
+                `;
+                card.addEventListener('click', () => window.open(teacher.youtube, '_blank'));
+                teachersContainer.appendChild(card);
+            });
+        }
+
+        function getSubjectName(subjectCode) {
+            const subjects = {
+                mat: 'Matematik',
+                fel: 'Felsefe',
+                ede: 'Edebiyat',
+                fiz: 'Fizik',
+                kim: 'Kimya',
+                biy: 'Biyoloji',
+                tar: 'Tarih',
+                cog: 'Coğrafya'
+            };
+            return subjects[subjectCode] || subjectCode;
+        }
+
+        function scrollTeachers(direction) {
+            const scrollAmount = teachersContainer.offsetWidth * 0.8 * direction;
+            teachersContainer.scrollBy({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+
+
+
+
+function init() {
+    currentDay = new Date();
+    currentDay.setHours(0, 0, 0, 0);
+    
+    // Load theme preference from localStorage
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        enableDarkMode();
+    }
+
+    // Load timer settings from localStorage
+    loadTimerSettings();
+
+    // Update timer display
+    updateTimerDisplay();
+
+    // Initialize countdown to YKS 2026
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // Render tasks and calendar
+    renderTasks();
+    renderCalendar();
+    renderWeekView();
+    renderDayView();
+	  renderTeachers();
+    updateProgress();
+
+    // Make progress container sticky
+    makeProgressSticky();
+
+    // Event Listeners
+    themeToggle.addEventListener('click', toggleTheme);
+    
+    // Timer Events
+    startBtn.addEventListener('click', startTimer);
+    pauseBtn.addEventListener('click', pauseTimer);
+    resetBtn.addEventListener('click', resetTimer);
+    showSettingsBtn.addEventListener('click', toggleTimerSettings);
+    saveSettingsBtn.addEventListener('click', saveTimerSettings);
+    
+    // Task Events
+    addTaskBtn.addEventListener('click', showTaskModal);
+    closeModal.addEventListener('click', hideTaskModal);
+    cancelTask.addEventListener('click', hideTaskModal);
+    
+    extraSettingsBtn.addEventListener('click', toggleExtraSettings);
+    
+    // Task Tab Events
+    taskTabs.forEach(tab => {
+        tab.addEventListener('click', () => switchTaskTab(tab));
+    });
+    
+    // View Option Events
+    viewOptionBtns.forEach(btn => {
+        btn.addEventListener('click', () => switchView(btn));
+    });
+    
+    // Calendar Events
+    prevMonthBtn.addEventListener('click', () => changeMonth(-1));
+    nextMonthBtn.addEventListener('click', () => changeMonth(1));
+    
+    // Week View Events
+    prevWeekBtn.addEventListener('click', () => changeWeek(-1));
+    nextWeekBtn.addEventListener('click', () => changeWeek(1));
+    
+    // Day View Events
+    prevDayBtn.addEventListener('click', () => changeDay(-1));
+    nextDayBtn.addEventListener('click', () => changeDay(1));
+    
+    // Day Modal Events
+    closeDayModal.addEventListener('click', hideDayModal);
+
+    // Toast Event
+    toastClose.addEventListener('click', hideToast);
+
+    // Responsive adjustments
+    window.addEventListener('resize', handleResize);
+    
+    // Bugün butonu event listener'ı
+    const todayTab = document.querySelector('.task-tab[data-tab="today"]');
+    if (todayTab) {
+        todayTab.addEventListener('click', () => {
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            currentDay = today;
+            prevArrow.addEventListener('click', () => scrollTeachers(-1));
+            nextArrow.addEventListener('click', () => scrollTeachers(1));
+            
+            // Gün görünümünü yenile
+            renderDayView();
+            dayViewTitle.textContent = formatDate(currentDay.getTime(), false);
+            
+            // Günlük görünümü aktif yap
+            currentView = 'day';
+            monthView.classList.remove('active');
+            weekView.classList.remove('active');
+            listView.classList.remove('active');
+            dayView.classList.add('active');
+        });
+    }
+}
+
+// ChatGPT Button Functionality
+const chatBtn = document.getElementById("chatgpt-button");
+const chatLabel = document.getElementById("chatgpt-label");
+
+chatBtn.addEventListener("click", () => {
+  window.open("https://chat.openai.com", "_blank");
+});
+
+chatBtn.addEventListener("mouseover", () => {
+  chatLabel.style.display = "block";
+});
+
+chatBtn.addEventListener("mouseout", () => {
+  chatLabel.style.display = "none";
+});
+
+// Dark mode uyumluluğu
+function updateChatButtonTheme() {
+  if (body.getAttribute('data-theme') === 'dark') {
+    chatBtn.style.backgroundColor = 'var(--accent-color)';
+    chatLabel.style.backgroundColor = 'var(--accent-color)';
+  } else {
+    chatBtn.style.backgroundColor = 'var(--primary-color)';
+    chatLabel.style.backgroundColor = 'var(--primary-color)';
+  }
+}
+
+// Theme değişikliklerini dinle
+themeToggle.addEventListener('click', updateChatButtonTheme);
+
+// İlk yüklemede tema kontrolü
+updateChatButtonTheme();
+// Make progress container sticky
+function makeProgressSticky() {
+    const headerHeight = document.querySelector('.header').offsetHeight;
+    progressContainer.style.position = 'sticky';
+    progressContainer.style.top = `${headerHeight + 20}px`;
+    progressContainer.style.zIndex = '10';
+    progressContainer.style.backgroundColor = 'var(--light-color)';
+    progressContainer.style.padding = '15px';
+    progressContainer.style.borderRadius = 'var(--border-radius)';
+    progressContainer.style.boxShadow = 'var(--box-shadow)';
+}
+
+function handleResize() {
+    makeProgressSticky();
+}
+
+// Theme Functions
+function toggleTheme() {
+    if (body.getAttribute('data-theme') === 'dark') {
+        disableDarkMode();
+    } else {
+        enableDarkMode();
+    }
+}
+
+function enableDarkMode() {
+    body.setAttribute('data-theme', 'dark');
+    themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+    localStorage.setItem('theme', 'dark');
+}
+
+function disableDarkMode() {
+    body.removeAttribute('data-theme');
+    themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+    localStorage.setItem('theme', 'light');
+}
+
+// Timer Functions
+function startTimer() {
+    if (!isRunning) {
+        isRunning = true;
+        isPaused = false;
+        startBtn.classList.add('hidden');
+        pauseBtn.classList.remove('hidden');
+        resetBtn.classList.remove('hidden');
+        
+        timer = setInterval(() => {
+            if (!isPaused) {
+                timeLeft--;
+                updateTimerDisplay();
+                
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    timerComplete();
+                }
+            }
+        }, 1000);
+    } else if (isPaused) {
+        isPaused = false;
+        pauseBtn.innerHTML = '<i class="fas fa-pause"></i> Duraklat';
+    }
+}
+
+function pauseTimer() {
+    if (isRunning && !isPaused) {
+        isPaused = true;
+        pauseBtn.innerHTML = '<i class="fas fa-play"></i> Devam Et';
+    } else if (isRunning && isPaused) {
+        isPaused = false;
+        pauseBtn.innerHTML = '<i class="fas fa-pause"></i> Duraklat';
+    }
+}
+
+function resetTimer() {
+    clearInterval(timer);
+    isRunning = false;
+    isPaused = false;
+    startBtn.classList.remove('hidden');
+    pauseBtn.classList.add('hidden');
+    resetBtn.classList.add('hidden');
+    pauseBtn.innerHTML = '<i class="fas fa-pause"></i> Duraklat';
+    
+    // Reset time based on current mode
+    switch (currentMode) {
+        case 'study':
+            timeLeft = parseInt(studyTimeInput.value) * 60;
+            break;
+        case 'shortBreak':
+            timeLeft = parseInt(shortBreakInput.value) * 60;
+            break;
+        case 'longBreak':
+            timeLeft = parseInt(longBreakInput.value) * 60;
+            break;
+    }
+    
+    updateTimerDisplay();
+}
+
+function timerComplete() {
+    isRunning = false;
+    startBtn.classList.remove('hidden');
+    pauseBtn.classList.add('hidden');
+    resetBtn.classList.add('hidden');
+    
+    // Play notification sound
+    const audio = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3');
+    audio.play();
+    
+    // Show toast notification instead of alert box
+    if (currentMode === 'study') {
+        sessionsCompleted++;
+        if (sessionsCompleted >= parseInt(sessionsInput.value)) {
+            currentMode = 'longBreak';
+            sessionsCompleted = 0;
+            timeLeft = parseInt(longBreakInput.value) * 60;
+            timerMode.textContent = 'Uzun Mola';
+            showToast('Tebrikler! Uzun mola zamanı.', 'success');
+        } else {
+            currentMode = 'shortBreak';
+            timeLeft = parseInt(shortBreakInput.value) * 60;
+            timerMode.textContent = 'Kısa Mola';
+            showToast('Çalışma seansı tamamlandı!', 'success');
+        }
+    } else {
+        currentMode = 'study';
+        timeLeft = parseInt(studyTimeInput.value) * 60;
+        timerMode.textContent = 'Çalışma Seansı';
+        showToast('Yeni çalışma seansı başlatıldı.', 'success');
+    }
+    
+    updateTimerDisplay();
+}
+
+function updateTimerDisplay() {
+    const minutes = Math.floor(timeLeft / 60);
+    const seconds = timeLeft % 60;
+    timerDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    
+    // Update document title
+    const modeText = currentMode === 'study' ? 'Çalışma' : (currentMode === 'shortBreak' ? 'Kısa Mola' : 'Uzun Mola');
+    document.title = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')} - ${modeText} | ZiyadeNet`;
+    
+    // Change color based on mode
+    timerDisplay.style.color = currentMode === 'study' ? 'var(--primary-color)' : 
+                              (currentMode === 'shortBreak' ? 'var(--secondary-color)' : 'var(--accent-color)');
+}
+
+function toggleTimerSettings() {
+    timerSettings.classList.toggle('show');
+}
+
+function saveTimerSettings() {
+    const settings = {
+        studyTime: studyTimeInput.value,
+        shortBreak: shortBreakInput.value,
+        longBreak: longBreakInput.value,
+        sessionsBeforeLongBreak: sessionsInput.value
+    };
+    
+    localStorage.setItem('pomodoroSettings', JSON.stringify(settings));
+    
+    // Reset timer with new settings if not running
+    if (!isRunning) {
+        timeLeft = parseInt(studyTimeInput.value) * 60;
+        updateTimerDisplay();
+    }
+    
+    showToast('Ayarlar kaydedildi', 'success');
+    timerSettings.classList.remove('show');
+}
+
+function loadTimerSettings() {
+    const savedSettings = localStorage.getItem('pomodoroSettings');
+    if (savedSettings) {
+        const settings = JSON.parse(savedSettings);
+        studyTimeInput.value = settings.studyTime;
+        shortBreakInput.value = settings.shortBreak;
+        longBreakInput.value = settings.longBreak;
+        sessionsInput.value = settings.sessionsBeforeLongBreak;
+        
+        // Set initial time
+        timeLeft = parseInt(settings.studyTime) * 60;
+        updateTimerDisplay();
+    }
+}
+
+// Countdown to YKS 2026 (assuming June 2026)
+function updateCountdown() {
+    const now = new Date();
+    const yksDate = new Date(2026, 5, 20, 10, 15, 0); // 20 Haziran 2026, 10:15:00
+ // 20 Haziran 2026
+    const diff = yksDate - now;
+    
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    
+    countdownDays.textContent = days.toString().padStart(2, '0');
+    countdownHours.textContent = hours.toString().padStart(2, '0');
+    countdownMinutes.textContent = minutes.toString().padStart(2, '0');
+    countdownSeconds.textContent = seconds.toString().padStart(2, '0');
+}
+
+// Task Manager Functions
+function showTaskModal() {
+    taskModal.classList.add('show');
+
+    // Formu sıfırla
+    taskForm.reset();
+
+    // Ek ayarları gizle
+    extraSettings.style.display = 'none';
+    extraSettingsBtn.innerHTML = '<i class="fas fa-cog"></i> Ek Ayarlar';
+
+    // Varsayılan değerleri ayarla
+    document.getElementById('taskPriority').value = 'medium';
+    document.getElementById('taskDuration').value = '60';
+
+    // currentDay'e göre tarih belirle
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const dueDateInput = document.getElementById('taskDueDate');
+
+    if (currentDay.getTime() !== today.getTime()) {
+        const selectedDate = new Date(currentDay);
+        selectedDate.setHours(12, 0, 0, 0); // Öğlen 12:00
+
+        const year = selectedDate.getFullYear();
+        const month = (selectedDate.getMonth() + 1).toString().padStart(2, '0');
+        const day = selectedDate.getDate().toString().padStart(2, '0');
+        const hours = selectedDate.getHours().toString().padStart(2, '0');
+        const minutes = selectedDate.getMinutes().toString().padStart(2, '0');
+        dueDateInput.value = `${year}-${month}-${day}T${hours}:${minutes}`;
+    } else {
+        // Bugün ise şimdiki saati yerel olarak al
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = (now.getMonth() + 1).toString().padStart(2, '0');
+        const day = now.getDate().toString().padStart(2, '0');
+        const hours = now.getHours().toString().padStart(2, '0');
+        const minutes = now.getMinutes().toString().padStart(2, '0');
+        dueDateInput.value = `${year}-${month}-${day}T${hours}:${minutes}`;
+    }
+
+    document.querySelector('.modal-title').textContent = 'Yeni Görev Ekle';
+    saveTask.textContent = 'Kaydet';
+    saveTask.onclick = handleTaskSave;
+}
+
+function hideTaskModal() {
+    taskModal.classList.remove('show');
+}
+
+function toggleExtraSettings() {
+    if (extraSettings.style.display === 'none') {
+        extraSettings.style.display = 'block';
+        extraSettingsBtn.innerHTML = '<i class="fas fa-minus-circle"></i> Ayarları Gizle';
+    } else {
+        extraSettings.style.display = 'none';
+        extraSettingsBtn.innerHTML = '<i class="fas fa-cog"></i> Ek Ayarlar';
+    }
+}
+
+function handleTaskSave() {
+    const title = document.getElementById('taskTitle').value.trim();
+    const dueDateValue = document.getElementById('taskDueDate').value;
+
+    if (!title) {
+        showToast('Lütfen görev başlığını giriniz.', 'error');
+        return;
+    }
+
+    let dueDate;
+    if (dueDateValue) {
+        dueDate = new Date(dueDateValue).getTime();
+    } else {
+        const today = new Date();
+        today.setHours(23, 59, 0, 0);
+        dueDate = today.getTime();
+    }
+
+    const description = document.getElementById('taskDescription')?.value.trim() || '';
+    const priority = document.getElementById('taskPriority')?.value || 'medium';
+    const duration = parseInt(document.getElementById('taskDuration')?.value) || 60;
+
+    // Eğer edit modda ise, mevcut görevi güncelle
+    if (editMode && editingTaskId !== null) {
+        const taskIndex = tasks.findIndex(task => task.id === editingTaskId);
+        if (taskIndex !== -1) {
+            tasks[taskIndex] = {
+                ...tasks[taskIndex],
+                title,
+                description,
+                dueDate,
+                priority,
+                duration
+            };
+            showToast('Görev başarıyla güncellendi!', 'success');
+        }
+
+        // Düzenleme modundan çık
+        editMode = false;
+        editingTaskId = null;
+    } else {
+        // Yeni görev oluştur
+        const newTask = {
+            id: Date.now(),
+            title,
+            description,
+            dueDate,
+            priority,
+            category: "study",
+            duration,
+            completed: false
+        };
+
+        tasks.push(newTask);
+        showToast('Görev başarıyla eklendi!', 'success');
+    }
+
+    saveTasks();
+    renderTasks(currentTab);
+    renderCalendar();
+    renderWeekView();
+    renderDayView();
+    updateProgress();
+    hideTaskModal();
+}
+
+
+function saveTasks() {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
+function renderTasks(filter = 'today') {
+    currentTab = filter;
+    taskList.innerHTML = '';
+    
+    const now = new Date();
+    let filteredTasks = [...tasks];
+    
+    switch (filter) {
+        case 'today':
+            filteredTasks = tasks.filter(task => {
+                const taskDate = new Date(task.dueDate);
+                return taskDate.toDateString() === now.toDateString();
+            });
+            break;
+        case 'week':
+            const nextWeek = new Date(now);
+            nextWeek.setDate(now.getDate() + 7);
+            filteredTasks = tasks.filter(task => {
+                const taskDate = new Date(task.dueDate);
+                return taskDate >= now && taskDate <= nextWeek;
+            });
+            break;
+        case 'month':
+            const nextMonth = new Date(now);
+            nextMonth.setMonth(now.getMonth() + 1);
+            filteredTasks = tasks.filter(task => {
+                const taskDate = new Date(task.dueDate);
+                return taskDate >= now && taskDate <= nextMonth;
+            });
+            break;
+        // 'all' shows all tasks
+    }
+
+    // Sort by date
+    filteredTasks.sort((a, b) => a.dueDate - b.dueDate);
+
+    if (filteredTasks.length === 0) {
+        taskList.innerHTML = `
+            <div style="text-align: center; padding: 30px; color: var(--dark-color); opacity: 0.7;">
+                <i class="fas fa-tasks" style="font-size: 2.5rem; margin-bottom: 15px; opacity: 0.5;"></i>
+                <h3 style="margin-bottom: 10px; font-weight: 500;">Görev bulunamadı</h3>
+                <p>Yeni görev eklemek için "+ Görev Ekle" butonuna tıklayın</p>
+            </div>
+        `;
+        return;
+    }
+
+    filteredTasks.forEach(task => {
+        const taskDate = new Date(task.dueDate);
+        const isOverdue = !task.completed && taskDate < now;
+
+        const priorityClass = task.priority === 'high' ? 'high' : (task.priority === 'medium' ? 'medium' : 'low');
+
+        const taskElement = document.createElement('div');
+        taskElement.className = `task-card-item ${task.completed ? 'completed' : ''}`;
+        taskElement.innerHTML = `
+            <div class="task-card-header">
+                <div class="task-item-title ${task.completed ? 'completed' : ''}">
+                    <label class="task-checkbox-container">
+                        <input type="checkbox" class="task-checkbox" ${task.completed ? 'checked' : ''} data-id="${task.id}">
+                        <span class="checkmark"></span>
+                        <span class="task-complete-text">${task.completed ? 'Tamamlandı' : 'Tamamla'}</span>
+                    </label>
+                    <span class="task-priority ${priorityClass}"></span>
+                    ${task.title}
+                    <span class="task-category">${getCategoryName(task.category)}</span>
+                </div>
+                <div class="task-actions">
+                    <button class="task-action-btn edit" data-id="${task.id}">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="task-action-btn delete" data-id="${task.id}">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="task-due-date ${isOverdue ? 'overdue' : ''}">
+                <i class="far fa-calendar-alt"></i> ${formatDate(task.dueDate)}
+                <span style="margin-left: 10px;"><i class="far fa-clock"></i> ${task.duration} dakika</span>
+            </div>
+            ${task.description ? `<div class="task-description">${task.description}</div>` : ''}
+        `;
+
+        taskList.appendChild(taskElement);
+    });
+
+    // Add event listeners
+    document.querySelectorAll('.task-checkbox').forEach(checkbox => {
+        checkbox.addEventListener('change', toggleTaskComplete);
+    });
+
+    document.querySelectorAll('.task-action-btn.edit').forEach(btn => {
+        btn.addEventListener('click', editTask);
+    });
+
+    document.querySelectorAll('.task-action-btn.delete').forEach(btn => {
+        btn.addEventListener('click', deleteTask);
+    });
+	bindSliderArrows();
+}
+
+function bindSliderArrows() {
+    const prevArrow = document.querySelector('.prev-arrow');
+    const nextArrow = document.querySelector('.next-arrow');
+    
+    if (prevArrow && nextArrow) {
+        prevArrow.addEventListener('click', () => scrollTeachers(-1));
+        nextArrow.addEventListener('click', () => scrollTeachers(1));
+    }
+}
+
+
+
+function getCategoryName(category) {
+    switch (category) {
+        case 'study': return 'Ders Çalışma';
+        case 'exercise': return 'Deneme Çözme';
+        case 'review': return 'Konu Tekrarı';
+        case 'reading': return 'Kitap Okuma';
+        default: return 'Diğer';
+    }
+}
+
+function toggleTaskComplete(e) {
+    const taskId = parseInt(e.target.dataset.id);
+    const taskIndex = tasks.findIndex(task => task.id === taskId);
+    
+    if (taskIndex !== -1) {
+        tasks[taskIndex].completed = e.target.checked;
+        saveTasks();
+        renderTasks(currentTab);
+        renderCalendar();
+        renderWeekView();
+        renderDayView();
+        updateProgress();
+        
+        showToast(`Görev ${e.target.checked ? 'tamamlandı' : 'tamamlanmadı'} olarak işaretlendi`, 'success');
+    }
+}
+
+function editTask(e) {
+    const taskId = parseInt(e.target.closest('button').dataset.id);
+    const task = tasks.find(task => task.id === taskId);
+    
+    if (task) {
+        document.getElementById('taskTitle').value = task.title;
+        document.getElementById('taskDescription').value = task.description;
+        
+        const dueDate = new Date(task.dueDate);
+        const formattedDate = `${dueDate.getFullYear()}-${(dueDate.getMonth() + 1).toString().padStart(2, '0')}-${dueDate.getDate().toString().padStart(2, '0')}T${dueDate.getHours().toString().padStart(2, '0')}:${dueDate.getMinutes().toString().padStart(2, '0')}`;
+        document.getElementById('taskDueDate').value = formattedDate;
+        
+        document.getElementById('taskPriority').value = task.priority;
+        document.getElementById('taskDuration').value = task.duration;
+        
+        // Show extra settings
+        extraSettings.style.display = 'block';
+        extraSettingsBtn.innerHTML = '<i class="fas fa-minus-circle"></i> Ayarları Gizle';
+        
+        // Change modal title and save button
+        document.querySelector('.modal-title').textContent = 'Görevi Düzenle';
+        saveTask.textContent = 'Güncelle';
+
+
+editMode = true;
+editingTaskId = taskId;
+
+taskModal.classList.add('show');
+
+    }
+}
+
+function updateTask(taskId) {
+    const taskIndex = tasks.findIndex(task => task.id === taskId);
+    
+    if (taskIndex === -1) {
+        showToast('Görev bulunamadı!', 'error');
+        return;
+    }
+
+    const title = document.getElementById('taskTitle').value.trim();
+    const dueDateValue = document.getElementById('taskDueDate').value;
+
+    if (!title) {
+        showToast('Lütfen görev başlığını giriniz.', 'error');
+        return;
+    }
+
+    // Aynı isimde başka görev var mı? (KENDİSİ HARİÇ)
+    const duplicateTask = tasks.find((task, index) => 
+        index !== taskIndex && 
+        task.title.toLowerCase() === title.toLowerCase() &&
+        new Date(task.dueDate).toDateString() === new Date(dueDateValue).toDateString()
+    );
+
+    if (duplicateTask) {
+        showToast('Bu isimde bir görev zaten mevcut!', 'error');
+        return;
+    }
+
+    // Mevcut görevi güncelle (YENİ GÖREV EKLEME)
+    tasks[taskIndex] = {
+        ...tasks[taskIndex], // Tüm özellikleri koru
+        title: title,
+        description: document.getElementById('taskDescription').value,
+        dueDate: new Date(dueDateValue).getTime(),
+        priority: document.getElementById('taskPriority').value,
+        duration: parseInt(document.getElementById('taskDuration').value)
+    };
+    
+    saveTasks();
+    
+    renderTasks(currentTab);
+    renderCalendar();
+    renderWeekView();
+    renderDayView();
+    hideTaskModal();
+    
+    showToast('Görev başarıyla güncellendi!', 'success');
+}
+
+function deleteTask(e) {
+    if (confirm('Bu görevi silmek istediğinize emin misiniz?')) {
+        const taskId = parseInt(e.target.closest('button').dataset.id);
+        tasks = tasks.filter(task => task.id !== taskId);
+        saveTasks();
+        renderTasks(currentTab);
+        renderCalendar();
+        renderWeekView();
+        renderDayView();
+        updateProgress();
+        
+        showToast('Görev başarıyla silindi!', 'success');
+    }
+}
+
+function showEditTaskModal(taskId) {
+    const task = tasks.find(t => t.id === taskId);
+    if (!task) return;
+
+    editingTaskId = taskId;
+    taskModal.classList.add('show');
+    taskForm.reset();
+
+    document.getElementById('taskTitle').value = task.title;
+    document.getElementById('taskDueDate').value = new Date(task.dueDate).toISOString().slice(0, 16);
+    document.getElementById('taskDescription').value = task.description || '';
+    document.getElementById('taskPriority').value = task.priority;
+    document.getElementById('taskDuration').value = task.duration;
+
+    extraSettings.style.display = 'block';
+    extraSettingsBtn.innerHTML = '<i class="fas fa-minus-circle"></i> Ayarları Gizle';
+
+    document.querySelector('.modal-title').textContent = 'Görev Düzenle';
+    saveTask.textContent = 'güncele';
+}
+
+
+function switchTaskTab(tab) {
+    taskTabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    
+    // Automatically switch view based on tab
+    if (tab.dataset.tab === 'week') {
+        switchView(document.querySelector('[data-view="calendar"]'));
+        currentView = 'week';
+        weekView.classList.add('active');
+        monthView.classList.remove('active');
+        dayView.classList.remove('active');
+        listView.classList.remove('active');
+    } else if (tab.dataset.tab === 'today') {
+        switchView(document.querySelector('[data-view="list"]'));
+        currentView = 'list';
+        listView.classList.add('active');
+        monthView.classList.remove('active');
+        weekView.classList.remove('active');
+        dayView.classList.remove('active');
+    } else if (tab.dataset.tab === 'month') {
+        switchView(document.querySelector('[data-view="calendar"]'));
+        currentView = 'month';
+        monthView.classList.add('active');
+        weekView.classList.remove('active');
+        dayView.classList.remove('active');
+        listView.classList.remove('active');
+    } else {
+        switchView(document.querySelector('[data-view="list"]'));
+        currentView = 'list';
+        listView.classList.add('active');
+        monthView.classList.remove('active');
+        weekView.classList.remove('active');
+        dayView.classList.remove('active');
+    }
+    
+    renderTasks(tab.dataset.tab);
+}
+
+function switchView(btn) {
+    const view = btn.dataset.view;
+    currentView = view;
+    
+    viewOptionBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    
+    // Hide all views
+    monthView.classList.remove('active');
+    weekView.classList.remove('active');
+    dayView.classList.remove('active');
+    listView.classList.remove('active');
+    
+    // Show selected view
+    if (view === 'list') {
+        listView.classList.add('active');
+        renderTasks(currentTab);
+    } else if (view === 'calendar') {
+        if (currentTab === 'week') {
+            weekView.classList.add('active');
+        } else if (currentTab === 'month') {
+            monthView.classList.add('active');
+        } else {
+            monthView.classList.add('active');
+        }
+    }
+}
+
+// Calendar Functions
+function renderCalendar() {
+    const firstDay = new Date(currentYear, currentMonth, 1);
+    const lastDay = new Date(currentYear, currentMonth + 1, 0);
+    const daysInMonth = lastDay.getDate();
+    const startingDay = firstDay.getDay() === 0 ? 6 : firstDay.getDay() - 1;
+
+    calendarMonth.textContent = `${getMonthName(currentMonth)} ${currentYear}`;
+    calendarWeeks.innerHTML = '';
+
+    let date = new Date(currentYear, currentMonth, 1 - startingDay);
+
+    for (let week = 0; week < 6; week++) {
+        const weekElement = document.createElement('div');
+        weekElement.className = 'calendar-week';
+
+        for (let i = 0; i < 7; i++) {
+            const dayElement = document.createElement('div');
+            dayElement.className = 'calendar-day';
+
+            const cellDate = new Date(date);
+
+            if (cellDate.getMonth() !== currentMonth) {
+                dayElement.classList.add('other-month');
+            }
+
+            if (isToday(cellDate)) {
+                dayElement.classList.add('today');
+            }
+
+            dayElement.innerHTML = `
+                <div class="calendar-day-number">${cellDate.getDate()}</div>
+                <div class="calendar-day-tasks" id="day-${cellDate.getFullYear()}-${cellDate.getMonth()}-${cellDate.getDate()}"></div>
+            `;
+
+            dayElement.addEventListener('click', () => {
+                currentDay = new Date(cellDate);
+                renderDayView();
+                dayViewTitle.textContent = formatDate(currentDay.getTime(), false);
+
+                currentView = 'day';
+                monthView.classList.remove('active');
+                weekView.classList.remove('active');
+                listView.classList.remove('active');
+                dayView.classList.add('active');
+            });
+
+            weekElement.appendChild(dayElement);
+            date.setDate(date.getDate() + 1);
+        }
+
+        calendarWeeks.appendChild(weekElement);
+
+        if (date.getMonth() !== currentMonth && date > lastDay) {
+            break;
+        }
+
+    }
+	
+
+    // Add tasks to calendar
+    tasks.forEach(task => {
+        const taskDate = new Date(task.dueDate);
+        const dayId = `day-${taskDate.getFullYear()}-${taskDate.getMonth()}-${taskDate.getDate()}`;
+        const dayElement = document.getElementById(dayId);
+        
+        if (dayElement) {
+            const priorityClass = task.priority === 'high' ? 'high' : 
+                                (task.priority === 'medium' ? 'medium' : 'low');
+            
+            const taskElement = document.createElement('div');
+            taskElement.className = `calendar-task ${task.completed ? 'completed' : ''}`;
+            
+            // İlk satır: Görevin ilk 3 harfi
+            const shortTitle = task.title.substring(0, 3);
+            
+            // İkinci satır: "Devamı" butonu
+            taskElement.innerHTML = `
+                <div>${shortTitle}${task.title.length > 3 ? '...' : ''}</div>
+                <div class="read-more-btn" style="color: var(--primary-color); cursor: pointer; font-size: 0.7rem; margin-top: 2px;">•••</div>
+            `;
+            
+            taskElement.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (e.target.classList.contains('read-more-btn')) {
+                    editTask({ target: { closest: () => ({ dataset: { id: task.id } }) } });
+                } else {
+                    currentDay = new Date(taskDate);
+                    renderDayView();
+                    dayViewTitle.textContent = formatDate(currentDay.getTime(), false);
+                    currentView = 'day';
+                    monthView.classList.remove('active');
+                    weekView.classList.remove('active');
+                    listView.classList.remove('active');
+                    dayView.classList.add('active');
+                }
+            });
+            
+            dayElement.appendChild(taskElement);
+        }
+    });
+}
+
+function changeMonth(change) {
+    currentMonth += change;
+    
+    if (currentMonth < 0) {
+        currentMonth = 11;
+        currentYear--;
+    } else if (currentMonth > 11) {
+        currentMonth = 0;
+        currentYear++;
+    }
+    
+    renderCalendar();
+}
+
+// Week View Functions
+function renderWeekView() {
+    const weekStart = new Date(currentWeekStart);
+    const weekEnd = new Date(weekStart);
+    weekEnd.setDate(weekStart.getDate() + 6);
+    
+    weekRange.textContent = `${formatDate(weekStart.getTime(), false)} - ${formatDate(weekEnd.getTime(), false)}`;
+    weekDays.innerHTML = '';
+    
+    for (let i = 0; i < 7; i++) {
+        const day = new Date(weekStart);
+        day.setDate(weekStart.getDate() + i);
+        
+        const dayElement = document.createElement('div');
+        dayElement.className = 'week-day';
+        if (isToday(day)) {
+            dayElement.classList.add('today');
+        }
+        
+        dayElement.innerHTML = `
+            <div class="week-day-header">
+                <div class="week-day-number">${getWeekdayName(i)} ${day.getDate()}</div>
+            </div>
+            <div class="week-day-tasks" id="week-day-${day.getFullYear()}-${day.getMonth()}-${day.getDate()}"></div>
+        `;
+        
+        dayElement.addEventListener('click', () => {
+            currentDay = new Date(day);
+            renderDayView();
+            dayViewTitle.textContent = formatDate(currentDay.getTime(), false);
+            currentView = 'day';
+                    monthView.classList.remove('active');
+                    weekView.classList.remove('active');
+                    listView.classList.remove('active');
+                    dayView.classList.add('active');
+                });
+                
+                weekDays.appendChild(dayElement);
+            }
+            
+            // Add tasks to week view
+            tasks.forEach(task => {
+                const taskDate = new Date(task.dueDate);
+                const dayId = `week-day-${taskDate.getFullYear()}-${taskDate.getMonth()}-${taskDate.getDate()}`;
+                const dayElement = document.getElementById(dayId);
+                
+                if (dayElement) {
+                    const priorityClass = task.priority === 'high' ? 'high' : 
+                                        (task.priority === 'medium' ? 'medium' : 'low');
+                    
+                    const taskElement = document.createElement('div');
+                    taskElement.className = `calendar-task ${task.completed ? 'completed' : ''}`;
+                    
+                    // İlk satır: Görevin ilk 3 harfi
+                    const shortTitle = task.title.substring(0, 3);
+                    
+                    // İkinci satır: "Devamı oku..." butonu
+                    taskElement.innerHTML = `
+                        <div>${shortTitle}${task.title.length > 3 ? '...' : ''}</div>
+                        <div class="read-more-btn" style="color: var(--primary-color); cursor: pointer; font-size: 0.7rem; margin-top: 2px;">•••</div>
+                    `;
+                    
+                    taskElement.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        if (e.target.classList.contains('read-more-btn')) {
+                            editTask({ target: { closest: () => ({ dataset: { id: task.id } }) } });
+                        } else {
+                            currentDay = new Date(taskDate);
+                            renderDayView();
+                            dayViewTitle.textContent = formatDate(currentDay.getTime(), false);
+                            currentView = 'day';
+                            monthView.classList.remove('active');
+                            weekView.classList.remove('active');
+                            listView.classList.remove('active');
+                            dayView.classList.add('active');
+                        }
+                    });
+                    
+                    dayElement.appendChild(taskElement);
+                }
+            });
+        }
+
+        function changeWeek(change) {
+            currentWeekStart.setDate(currentWeekStart.getDate() + (change * 7));
+            renderWeekView();
+        }
+
+        function getStartOfWeek(date) {
+            const d = new Date(date);
+            const day = d.getDay();
+            const diff = d.getDate() - day + (day === 0 ? -6 : 1);
+            return new Date(d.setDate(diff));
+        }
+
+        function getWeekdayName(index) {
+            const weekdays = ['Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumartesi', 'Pazar'];
+            return weekdays[index];
+        }
+
+        // Day View Functions
+        function renderDayView() {
+            const dayTasks = tasks.filter(task => {
+                const taskDate = new Date(task.dueDate);
+                return taskDate.getDate() === currentDay.getDate() && 
+                       taskDate.getMonth() === currentDay.getMonth() && 
+                       taskDate.getFullYear() === currentDay.getFullYear();
+            });
+            
+            dayViewTitle.textContent = formatDate(currentDay.getTime(), false);
+            dayViewTaskList.innerHTML = '';
+            
+            if (dayTasks.length === 0) {
+                dayViewTaskList.innerHTML = `
+                   <div style="
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    color: var(--dark-color);
+    opacity: 0.7;
+    text-align: center;
+">
+    <i class="fas fa-tasks" style="font-size: 2.5rem; margin-bottom: 15px; opacity: 0.5;"></i>
+    <h3 style="margin-bottom: 10px; font-weight: 500;">Bu güne ait görev bulunamadı</h3>
+    <p>Bu güne yeni görev eklemek için aşağıdaki butonu kullanabilirsiniz</p>
+    <button class="btn btn-primary" id="addTaskForDay" style="margin-top: 15px;">
+        <i class="fas fa-plus"></i> Görev Ekle
+    </button>
+</div>
+
+                `;
+                
+                document.getElementById('addTaskForDay').addEventListener('click', () => {
+                    showTaskModal();
+                });
+            } else {
+                dayTasks.sort((a, b) => a.dueDate - b.dueDate).forEach(task => {
+                    const taskDate = new Date(task.dueDate);
+                    const isOverdue = !task.completed && taskDate < new Date();
+                    
+                    const priorityClass = task.priority === 'high' ? 'high' : (task.priority === 'medium' ? 'medium' : 'low');
+                    
+                    const taskElement = document.createElement('div');
+                    taskElement.className = `task-card-item ${task.completed ? 'completed' : ''}`;
+                    taskElement.innerHTML = `
+                        <div class="task-card-header">
+                            <div class="task-item-title ${task.completed ? 'completed' : ''}">
+                                <label class="task-checkbox-container">
+                                    <input type="checkbox" class="task-checkbox" ${task.completed ? 'checked' : ''} data-id="${task.id}">
+                                    <span class="checkmark"></span>
+                                    <span class="task-complete-text">${task.completed ? 'Tamamlandı' : 'Tamamla'}</span>
+                                </label>
+                                <span class="task-priority ${priorityClass}"></span>
+                                ${task.title}
+                            </div>
+                            <div class="task-actions">
+                                <button class="task-action-btn edit" data-id="${task.id}"><i class="fas fa-edit"></i></button>
+                                <button class="task-action-btn delete" data-id="${task.id}"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                        <div class="task-due-date ${isOverdue ? 'overdue' : ''}">
+                            <i class="far fa-clock"></i> ${formatTime(task.dueDate)}
+                        </div>
+                        ${task.description ? `<div class="task-description">${task.description}</div>` : ''}
+                        <div style="margin-top: 8px;">
+                            <span class="task-category">${getCategoryName(task.category)}</span>
+                            <span style="margin-left: 10px;"><i class="far fa-clock"></i> ${task.duration} dakika</span>
+                        </div>
+                    `;
+                    
+                    dayViewTaskList.appendChild(taskElement);
+                });
+                
+                // Add event listeners to checkboxes and buttons
+                dayViewTaskList.querySelectorAll('.task-checkbox').forEach(checkbox => {
+                    checkbox.addEventListener('change', toggleTaskComplete);
+                });
+                
+                dayViewTaskList.querySelectorAll('.task-action-btn.edit').forEach(btn => {
+                    btn.addEventListener('click', editTask);
+                });
+                
+                dayViewTaskList.querySelectorAll('.task-action-btn.delete').forEach(btn => {
+                    btn.addEventListener('click', deleteTask);
+                });
+            }
+        }
+
+        function changeDay(change) {
+            currentDay.setDate(currentDay.getDate() + change);
+            renderDayView();
+            dayViewTitle.textContent = formatDate(currentDay.getTime(), false);
+        }
+
+        function showDayTasks(date) {
+            const dayTasks = tasks.filter(task => {
+                const taskDate = new Date(task.dueDate);
+                return taskDate.getDate() === date.getDate() && 
+                       taskDate.getMonth() === date.getMonth() && 
+                       taskDate.getFullYear() === date.getFullYear();
+            });
+            
+            dayModalTitle.textContent = formatDate(date.getTime(), false);
+            dayTaskList.innerHTML = '';
+            
+            if (dayTasks.length === 0) {
+                dayTaskList.innerHTML = `
+                    <div style="text-align: center; padding: 30px; color: var(--dark-color); opacity: 0.7;">
+                        <i class="fas fa-tasks" style="font-size: 2.5rem; margin-bottom: 15px; opacity: 0.5;"></i>
+                        <h3 style="margin-bottom: 10px; font-weight: 500;">Bu güne ait görev bulunamadı</h3>
+                        <p>Bu güne yeni görev eklemek için aşağıdaki butonu kullanabilirsiniz</p>
+                        <button class="btn btn-primary" id="addTaskForDay" style="margin-top: 15px;">
+                            <i class="fas fa-plus"></i> Görev Ekle
+                        </button>
+                    </div>
+                `;
+                
+                document.getElementById('addTaskForDay').addEventListener('click', () => {
+                    hideDayModal();
+                    showTaskModal();
+                    // Set the date in the modal to the selected day
+                    const formattedDate = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}T12:00`;
+                    document.getElementById('taskDueDate').value = formattedDate;
+                });
+            } else {
+                dayTasks.sort((a, b) => a.dueDate - b.dueDate).forEach(task => {
+                    const taskDate = new Date(task.dueDate);
+                    const isOverdue = !task.completed && taskDate < new Date();
+                    
+                    const priorityClass = task.priority === 'high' ? 'high' : (task.priority === 'medium' ? 'medium' : 'low');
+                    
+                    const taskElement = document.createElement('div');
+                    taskElement.className = `task-card-item ${task.completed ? 'completed' : ''}`;
+                    taskElement.innerHTML = `
+                        <div class="task-card-header">
+                            <div class="task-item-title ${task.completed ? 'completed' : ''}">
+                                <label class="task-checkbox-container">
+                                    <input type="checkbox" class="task-checkbox" ${task.completed ? 'checked' : ''} data-id="${task.id}">
+                                    <span class="checkmark"></span>
+                                    <span class="task-complete-text">${task.completed ? 'Tamamlandı' : 'Tamamla'}</span>
+                                </label>
+                                <span class="task-priority ${priorityClass}"></span>
+                                ${task.title}
+                            </div>
+                            <div class="task-actions">
+                                <button class="task-action-btn edit" data-id="${task.id}"><i class="fas fa-edit"></i></button>
+                                <button class="task-action-btn delete" data-id="${task.id}"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                        <div class="task-due-date ${isOverdue ? 'overdue' : ''}">
+                            <i class="far fa-clock"></i> ${formatTime(task.dueDate)}
+                        </div>
+                        ${task.description ? `<div class="task-description">${task.description}</div>` : ''}
+                        <div style="margin-top: 8px;">
+                            <span class="task-category">${getCategoryName(task.category)}</span>
+                            <span style="margin-left: 10px;"><i class="far fa-clock"></i> ${task.duration} dakika</span>
+                        </div>
+                    `;
+                    
+                    dayTaskList.appendChild(taskElement);
+                });
+                
+                // Add event listeners to checkboxes and buttons
+                dayTaskList.querySelectorAll('.task-checkbox').forEach(checkbox => {
+                    checkbox.addEventListener('change', toggleTaskComplete);
+                });
+                
+                dayTaskList.querySelectorAll('.task-action-btn.edit').forEach(btn => {
+                    btn.addEventListener('click', editTask);
+                });
+                
+                dayTaskList.querySelectorAll('.task-action-btn.delete').forEach(btn => {
+                    btn.addEventListener('click', deleteTask);
+                });
+            }
+            
+            dayModal.classList.add('show');
+        }
+
+        function hideDayModal() {
+            dayModal.classList.remove('show');
+        }
+
+        // Helper Functions
+        function isToday(date) {
+            const today = new Date();
+            return date.getDate() === today.getDate() && 
+                   date.getMonth() === today.getMonth() && 
+                   date.getFullYear() === today.getFullYear();
+        }
+
+        function getMonthName(month) {
+            const months = ['Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran', 'Temmuz', 'Ağustos', 'Eylül', 'Ekim', 'Kasım', 'Aralık'];
+            return months[month];
+        }
+
+        function formatDate(timestamp, includeTime = true) {
+            const date = new Date(timestamp);
+            const options = { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+            };
+            
+            if (includeTime) {
+                options.hour = '2-digit';
+                options.minute = '2-digit';
+            }
+            
+            return date.toLocaleDateString('tr-TR', options);
+        }
+
+        function formatTime(timestamp) {
+            const date = new Date(timestamp);
+            return date.toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' });
+        }
+
+        // Toast Functions
+        function showToast(message, type) {
+    toast.classList.remove('hidden');
+    toast.classList.add('show', type);
+
+    toastMessage.textContent = message;
+
+    const icon = toast.querySelector('.toast-icon i');
+    if (icon) {
+        icon.className = type === 'success'
+            ? 'fas fa-check-circle'
+            : 'fas fa-exclamation-circle';
+    }
+
+    setTimeout(() => {
+        hideToast();
+    }, 3000);
+}
+
+function hideToast() {
+    toast.classList.remove('show');
+    toast.classList.remove('success', 'error');
+
+    setTimeout(() => {
+        toast.classList.add('hidden');
+    }, 300);
+}
+
+
+
+        // Progress Functions
+        function updateProgress() {
+            const completedTasks = tasks.filter(task => task.completed).length;
+            const totalTasks = tasks.length;
+            const progressPercentage = totalTasks > 0 ? Math.round((completedTasks / totalTasks) * 100) : 0;
+            
+            progressFill.style.width = `${progressPercentage}%`;
+            
+            const progressStats = document.querySelector('.progress-stats');
+            if (progressStats) {
+                progressStats.innerHTML = `
+                    <span>Tamamlanan: <strong>${completedTasks}</strong> görev</span>
+                    <span>Toplam: <strong>${totalTasks}</strong> görev</span>
+                `;
+            }
+        }
+
+        // Initialize the app when DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
+
+
